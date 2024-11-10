@@ -1,7 +1,6 @@
-package com.example.infrastructure.domain.persistence.mapper;
+package project.domain.persistence.mapper;
 
 
-import com.example.infrastructure.domain.persistence.entity.BookstoreEntity;
 import org.springframework.stereotype.Component;
 
 @Component

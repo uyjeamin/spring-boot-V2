@@ -1,6 +1,6 @@
-package com.example.infrastructure.domain.persistence.repository;
+package project.domain.persistence.repository;
 
-import com.example.infrastructure.domain.persistence.entity.BookstoreEntity;
+import project.domain.persistence.entity.BookstoreEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
