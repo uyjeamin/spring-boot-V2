@@ -1,4 +1,4 @@
-package infrastructure.domain.persistence.entity;
+package com.example.infrastructure.domain.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
