@@ -1,4 +1,4 @@
-package project.domain.bookstore.model;
+package project.domain.bookstore.model.bookstore;
 
 import lombok.Builder;
 import lombok.Getter;

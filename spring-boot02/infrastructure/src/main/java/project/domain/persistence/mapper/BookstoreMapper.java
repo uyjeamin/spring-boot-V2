@@ -2,7 +2,7 @@ package project.domain.persistence.mapper;
 
 
 import org.springframework.stereotype.Component;
-import project.domain.bookstore.model.Bookstore;
+import project.domain.bookstore.model.bookstore.Bookstore;
 import project.domain.persistence.entity.BookstoreEntity;
 
 @Component
