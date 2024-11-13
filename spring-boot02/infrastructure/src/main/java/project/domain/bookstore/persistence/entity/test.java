@@ -1,4 +1,4 @@
-package project.domain.persistence.entity;
+package project.domain.bookstore.persistence.entity;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

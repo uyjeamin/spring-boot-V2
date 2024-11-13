@@ -1,4 +1,4 @@
-package project.domain.persistence.entity;
+package project.domain.bookstore.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

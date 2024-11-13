@@ -1,15 +1,11 @@
-package project.domain.persistence;
+package project.domain.bookstore.persistence;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import project.domain.bookstore.model.bookstore.Bookstore;
 import project.domain.bookstore.spi.BookstorePort;
-import project.domain.persistence.entity.BookstoreEntity;
-import project.domain.persistence.mapper.BookstoreMapper;
-import project.domain.persistence.repository.BookstoreRepository;
-
-import java.util.Optional;
+import project.domain.bookstore.persistence.mapper.BookstoreMapper;
+import project.domain.bookstore.persistence.repository.BookstoreRepository;
 
 @Repository
 @RequiredArgsConstructor
