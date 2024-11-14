@@ -1,4 +1,4 @@
-package project.domain.bookstore.model.bookstore.dto.request;
+package project.domain.book.model.book.dto.request;
 
 public record CreateBookRequest(
         String title,

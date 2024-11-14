@@ -1,8 +1,8 @@
-package project.domain.bookstore.presentation.dto;
+package project.domain.book.presentation.dto;
 
 import lombok.Builder;
 import lombok.Getter;
-import project.domain.bookstore.model.bookstore.dto.request.CreateBookRequest;
+import project.domain.book.model.book.dto.request.CreateBookRequest;
 
 @Getter
 @Builder

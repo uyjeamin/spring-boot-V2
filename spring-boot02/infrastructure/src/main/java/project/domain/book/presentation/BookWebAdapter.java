@@ -1,4 +1,4 @@
-package project.domain.bookstore.presentation;
+package project.domain.book.presentation;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import project.domain.bookstore.model.bookstore.usecase.CreateBookstoreUseCase;
-import project.domain.bookstore.presentation.dto.CreateBookWebRequest;
+import project.domain.book.model.book.usecase.CreateBookstoreUseCase;
+import project.domain.book.presentation.dto.CreateBookWebRequest;
 
 @RestController
 @RequestMapping("/bookstore")
 @RequiredArgsConstructor
-public class BookstoreWebAdapter {
+public class BookWebAdapter {
     private final CreateBookstoreUseCase createBookstoreUseCase;
 
     @PostMapping("")

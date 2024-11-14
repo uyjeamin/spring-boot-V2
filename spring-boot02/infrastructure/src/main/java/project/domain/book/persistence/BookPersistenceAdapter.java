@@ -1,21 +1,21 @@
-package project.domain.bookstore.persistence;
+package project.domain.book.persistence;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import project.domain.bookstore.model.bookstore.Bookstore;
-import project.domain.bookstore.spi.BookstorePort;
-import project.domain.bookstore.persistence.mapper.BookstoreMapper;
-import project.domain.bookstore.persistence.repository.BookstoreRepository;
+import project.domain.book.model.book.Book;
+import project.domain.book.spi.BookPort;
+import project.domain.book.persistence.mapper.BookMapper;
+import project.domain.book.persistence.repository.BookRepository;
 
 @Repository
 @RequiredArgsConstructor
-public class BookstorePersistenceAdapter implements BookstorePort {
-    private final BookstoreRepository bookstoreRepository;
-    private final BookstoreMapper bookstoreMapper;
+public class BookPersistenceAdapter implements BookPort {
+    private final BookRepository bookstoreRepository;
+    private final BookMapper bookstoreMapper;
 
 
     @Override
-    public void save(Bookstore bookstore) {
+    public void save(Book bookstore) {
         bookstoreRepository.findById(bookstore.getId()).ifPresent(a ->{throw new RuntimeException("already exists");});
         bookstoreRepository.save(bookstoreMapper.toEntity(bookstore));
     }
@@ -26,13 +26,13 @@ public class BookstorePersistenceAdapter implements BookstorePort {
     }
 
     @Override
-    public void update(Bookstore bookstore) {
+    public void update(Book bookstore) {
        bookstoreRepository.findById(bookstore.getId()).orElseThrow(()->new RuntimeException("book not found to update"));
        bookstoreRepository.save(bookstoreMapper.toEntity(bookstore));
     }
 
     @Override
-    public Bookstore get(long id) {
+    public Book get(long id) {
         return bookstoreMapper.toDomain(
                 bookstoreRepository.findById(id).orElseThrow(()->new RuntimeException("book not found"))
         );
