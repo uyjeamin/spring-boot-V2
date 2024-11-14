@@ -2,11 +2,13 @@ package project.domain.book.persistence;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import project.domain.book.model.book.Book;
-import project.domain.book.persistence.entity.BookEntity;
-import project.domain.book.spi.BookPort;
+import org.springframework.transaction.annotation.Transactional;
 import project.domain.book.persistence.mapper.BookMapper;
 import project.domain.book.persistence.repository.BookRepository;
+import project.domain.model.book.Book;
+import project.domain.model.book.dto.request.UpdateBookRequest;
+import project.domain.model.book.dto.response.ReadBookResponse;
+import project.domain.model.book.spi.BookPort;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,9 +18,9 @@ public class BookPersistenceAdapter implements BookPort {
 
 
     @Override
-    public void save(Book bookstore) {
-        bookRepository.findById(bookstore.getId()).ifPresent(a ->{throw new RuntimeException("already exists");});
-        bookRepository.save(bookstoreMapper.toEntity(bookstore));
+    public void save(Book book) {
+        bookRepository.findById(book.getId()).ifPresent(a ->{throw new RuntimeException("already exists");});
+        bookRepository.save(bookstoreMapper.toEntity(book));
     }
 
     @Override
@@ -26,16 +28,28 @@ public class BookPersistenceAdapter implements BookPort {
         bookRepository.deleteById(id);
     }
 
+    @Transactional
     @Override
-    public void update(Book bookstore) {
-       bookRepository.findById(bookstore.getId()).orElseThrow(()->new RuntimeException("book not found to update"));
-       bookRepository.save(bookstoreMapper.toEntity(bookstore));
+    public void update(UpdateBookRequest request) {
+       bookRepository.findById(request.id()).orElseThrow(()->new RuntimeException("book not found to update"));
+       Book book = Book.builder()
+               .id(request.id())
+               .title(request.title())
+               .content(request.content())
+               .build();
+       bookRepository.save(bookstoreMapper.toEntity(book));
     }
 
     @Override
-    public Book get(long id) {
-        return bookstoreMapper.toDomain(
+    public ReadBookResponse get(long id) {
+        Book book= bookstoreMapper.toDomain(
                 bookRepository.findById(id).orElseThrow(()->new RuntimeException("book not found"))
         );
+
+       return ReadBookResponse.builder()
+                .title(book.getTitle())
+                .content(book.getContent())
+                .id(book.getId())
+                .build();
     }
 }

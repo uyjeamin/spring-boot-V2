@@ -1,15 +1,12 @@
-package project.domain.book.model.book;
+package project.domain.model.book.dto.response;
 
 import lombok.Builder;
-import lombok.Getter;
 
-@Getter
 @Builder
-public class Book {
+public class ReadBookResponse {
     private long id;
 
     private String title;
 
     private String content;
-
 }

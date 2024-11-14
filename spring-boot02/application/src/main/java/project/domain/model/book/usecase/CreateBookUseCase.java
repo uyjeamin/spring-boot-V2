@@ -1,10 +1,10 @@
-package project.domain.book.model.book.usecase;
+package project.domain.model.book.usecase;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import project.domain.book.model.book.Book;
-import project.domain.book.model.book.dto.request.CreateBookRequest;
-import project.domain.book.spi.BookPort;
+import project.domain.model.book.Book;
+import project.domain.model.book.dto.request.CreateBookRequest;
+import project.domain.model.book.spi.BookPort;
 
 @Service
 @RequiredArgsConstructor

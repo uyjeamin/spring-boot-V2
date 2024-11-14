@@ -1,17 +1,17 @@
-package project.domain.book.model.book.usecase;
+package project.domain.model.book.usecase;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import project.domain.book.model.book.Book;
-import project.domain.book.spi.CommandBookPort;
-import project.domain.book.spi.QueryBookPort;
+import project.domain.model.book.Book;
+import project.domain.model.book.dto.response.ReadBookResponse;
+import project.domain.model.book.spi.QueryBookPort;
 
 @Service
 @RequiredArgsConstructor
 public class ReadBookUseCase {
     private final QueryBookPort queryBookPort;
 
-    public Book getBook(long id) {
+    public ReadBookResponse readBook(long id) {
         return queryBookPort.get(id);
     }
 }
