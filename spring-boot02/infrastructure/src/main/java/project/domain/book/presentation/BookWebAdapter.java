@@ -8,6 +8,7 @@ import project.domain.model.book.Book;
 import project.domain.model.book.dto.request.UpdateBookRequest;
 import project.domain.model.book.dto.response.ReadBookResponse;
 import project.domain.model.book.usecase.CreateBookUseCase;
+import project.domain.model.book.usecase.DeleteBookUseCase;
 import project.domain.model.book.usecase.ReadBookUseCase;
 import project.domain.model.book.usecase.UpdateBookUseCase;
 
@@ -18,6 +19,7 @@ public class BookWebAdapter {
     private final CreateBookUseCase createBookUseCase;
     private final ReadBookUseCase readBookUseCase;
     private final UpdateBookUseCase updateBookUseCase;
+    private final DeleteBookUseCase deleteBookUseCase;
 
     @PostMapping("")
     public void createBook(@RequestBody CreateBookWebRequest request) {
@@ -34,5 +36,8 @@ public class BookWebAdapter {
         updateBookUseCase.updateBook(request);
     }
 
-
+    @DeleteMapping("{id}")
+    public void deleteBook(@RequestParam("id") Long id) {
+        deleteBookUseCase.deleteBook(id);
+    }
 }
