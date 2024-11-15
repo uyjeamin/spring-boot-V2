@@ -59,6 +59,7 @@ tasks.named('test') {
 bootJar {
 	enabled = true
 	destinationDirectory = file("$buildDir/libs")
+	mainClass = 'project.SpringBoot02Application'
 }
 
 jar.enabled = false
