@@ -1,11 +1,11 @@
-package project.domain.bookstore.model;
+package project.domain.model.book;
 
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
-public class Bookstore {
+public class Book {
     private long id;
 
     private String title;
