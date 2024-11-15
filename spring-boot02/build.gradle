@@ -56,5 +56,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+bootJar {
+	enabled = true
+	destinationDirectory = file("$buildDir/libs")
+}
+
 jar.enabled = false
 bootJar.enabled = false
