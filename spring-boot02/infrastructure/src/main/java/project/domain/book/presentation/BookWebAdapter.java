@@ -26,8 +26,8 @@ public class BookWebAdapter {
         createBookUseCase.createBookstore(request.toDomainRequest());
     }
 
-    @GetMapping("{id}")
-    public ReadBookResponse readBook(@RequestParam("id") Long id) {
+    @GetMapping("/{id}")
+    public ReadBookResponse readBook(@PathVariable Long id) {
         return readBookUseCase.readBook(id);
     }
 
@@ -36,8 +36,8 @@ public class BookWebAdapter {
         updateBookUseCase.updateBook(request);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteBook(@RequestParam("id") Long id) {
+    @DeleteMapping("/{id}")
+    public void deleteBook(@PathVariable Long id) {
         deleteBookUseCase.deleteBook(id);
     }
 }
