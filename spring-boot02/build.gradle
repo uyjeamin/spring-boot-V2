@@ -62,4 +62,12 @@ bootJar {
 	mainClass = 'project.SpringBoot02Application'
 }
 
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+	}
+}
+
 jar.enabled = false
