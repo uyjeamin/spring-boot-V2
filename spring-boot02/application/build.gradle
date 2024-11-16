@@ -1,14 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'team.retum'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    implementation 'org.springframework:spring-tx:5.3.22'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'junit:junit:4.13.2'
 }
 
-bootJar {
-    enabled = false
-}
-
-tasks.register("prepareKotlinBuildScriptModel") {
-
-}
-task wrapper(type: Wrapper) {
-    gradleVersion = '9.0'
+jar {
+    enabled = true // application 모듈은 일반 JAR만 생성
 }
