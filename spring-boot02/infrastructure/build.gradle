@@ -9,7 +9,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	//testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation project(':application')
 }
 
@@ -19,5 +19,5 @@ jar.enabled = false
 tasks.register("prepareKotlinBuildScriptModel"){}
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '7.0'
+	gradleVersion = '9.0'
 }
