@@ -27,8 +27,16 @@ dependencies {
 	implementation project(':application') // application 모듈 의존성 추가
 }
 
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java', 'infrastructure/src/main/java'] // infrastructure 경로 추가
+		}
+	}
+}
+
 bootJar {
-	mainClass = 'project.SpringBoot02Application' // 실행 애플리케이션 클래스 지정
+	mainClass = 'project.SpringBoot02Application' // mainClass 속성 사용
 }
 
 test {
