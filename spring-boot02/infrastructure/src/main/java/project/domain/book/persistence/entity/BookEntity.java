@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.domain.book.model.BookType;
 
 @Entity
 @AllArgsConstructor
@@ -22,4 +23,11 @@ public class BookEntity {
 
     @Column
     private String content;
+
+    @Column
+    private String author;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private BookType type;
 }

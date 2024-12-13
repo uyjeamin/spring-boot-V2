@@ -36,6 +36,8 @@ public class BookPersistenceAdapter implements BookPort {
                .id(request.id())
                .title(request.title())
                .content(request.content())
+               .author(request.author())
+               .type(request.type())
                .build();
        bookRepository.save(bookstoreMapper.toEntity(book));
     }
@@ -50,6 +52,8 @@ public class BookPersistenceAdapter implements BookPort {
                 .title(book.getTitle())
                 .content(book.getContent())
                 .id(book.getId())
+                .author(book.getAuthor())
+                .type(book.getType())
                 .build();
     }
 }

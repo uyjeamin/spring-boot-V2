@@ -12,7 +12,7 @@ import project.domain.book.usecase.ReadBookUseCase;
 import project.domain.book.usecase.UpdateBookUseCase;
 
 @RestController
-@RequestMapping("/bookstore")
+@RequestMapping("/book")
 @RequiredArgsConstructor
 public class BookWebAdapter {
     private final CreateBookUseCase createBookUseCase;

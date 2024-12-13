@@ -16,6 +16,8 @@ public class CreateBookUseCase {
       Book book = Book.builder()
               .title(request.title())
               .content(request.content())
+              .type(request.type())
+              .author(request.author())
               .build();
       bookPort.save(book);
    }
