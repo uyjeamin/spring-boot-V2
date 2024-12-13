@@ -3,7 +3,7 @@ package project.domain.book.persistence.mapper;
 
 import org.springframework.stereotype.Component;
 import project.domain.book.persistence.entity.BookEntity;
-import project.domain.model.book.Book;
+import project.domain.book.model.Book;
 
 @Component
 public class BookMapper {
@@ -13,6 +13,8 @@ public class BookMapper {
                 .id(domain.getId())
                 .title(domain.getTitle())
                 .content(domain.getContent())
+                .author(domain.getAuthor())
+                .type(domain.getType())
                 .build();
     }
 
@@ -21,6 +23,8 @@ public class BookMapper {
                 .id(entity.getId())
                 .title(entity.getTitle())
                 .content(entity.getContent())
+                .author(entity.getAuthor())
+                .type(entity.getType())
                 .build();
     }
 }

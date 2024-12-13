@@ -1,10 +1,10 @@
-package project.domain.model.book.usecase;
+package project.domain.book.usecase;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import project.domain.model.book.Book;
-import project.domain.model.book.dto.request.CreateBookRequest;
-import project.domain.model.book.spi.BookPort;
+import project.domain.book.model.Book;
+import project.domain.book.dto.request.CreateBookRequest;
+import project.domain.book.spi.BookPort;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +16,8 @@ public class CreateBookUseCase {
       Book book = Book.builder()
               .title(request.title())
               .content(request.content())
+              .type(request.type())
+              .author(request.author())
               .build();
       bookPort.save(book);
    }

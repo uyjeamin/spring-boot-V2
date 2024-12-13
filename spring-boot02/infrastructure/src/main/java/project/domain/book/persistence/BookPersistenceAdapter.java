@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import project.domain.book.persistence.mapper.BookMapper;
 import project.domain.book.persistence.repository.BookRepository;
-import project.domain.model.book.Book;
-import project.domain.model.book.dto.request.UpdateBookRequest;
-import project.domain.model.book.dto.response.ReadBookResponse;
-import project.domain.model.book.spi.BookPort;
+import project.domain.book.model.Book;
+import project.domain.book.dto.request.UpdateBookRequest;
+import project.domain.book.dto.response.ReadBookResponse;
+import project.domain.book.spi.BookPort;
 
 @Repository
 @RequiredArgsConstructor
@@ -36,6 +36,8 @@ public class BookPersistenceAdapter implements BookPort {
                .id(request.id())
                .title(request.title())
                .content(request.content())
+               .author(request.author())
+               .type(request.type())
                .build();
        bookRepository.save(bookstoreMapper.toEntity(book));
     }
@@ -50,6 +52,8 @@ public class BookPersistenceAdapter implements BookPort {
                 .title(book.getTitle())
                 .content(book.getContent())
                 .id(book.getId())
+                .author(book.getAuthor())
+                .type(book.getType())
                 .build();
     }
 }

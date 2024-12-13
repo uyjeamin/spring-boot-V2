@@ -1,8 +1,8 @@
-package project.domain.model.book.usecase;
+package project.domain.book.usecase;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import project.domain.model.book.spi.CommandBookPort;
+import project.domain.book.spi.CommandBookPort;
 
 @Service
 @RequiredArgsConstructor
