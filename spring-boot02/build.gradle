@@ -50,6 +50,19 @@ subprojects {
 		//test
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+		// 기본 AssertJ
+		testImplementation 'org.assertj:assertj-core:3.24.2'
+/*
+		 추가적인 기능이 필요하다면 선택적으로 추가
+		 Swing 컴포넌트 테스트
+		testImplementation 'org.assertj:assertj-swing:3.17.2'
+
+		 데이터베이스 테스트
+		testImplementation 'org.assertj:assertj-db:2.0.0'
+
+		 Neo4j 테스트
+		testImplementation 'org.assertj:assertj-neo4j:1.0.0'
+*/
 		//QueryDsl
 		implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
 		annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
