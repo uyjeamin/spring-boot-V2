@@ -1,4 +1,4 @@
-package project.domain.model.book;
+package project.domain.book.model;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,4 +12,7 @@ public class Book {
 
     private String content;
 
+    private String author;
+
+    private BookType type;
 }

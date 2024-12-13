@@ -4,13 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import project.domain.book.presentation.dto.CreateBookWebRequest;
-import project.domain.model.book.Book;
-import project.domain.model.book.dto.request.UpdateBookRequest;
-import project.domain.model.book.dto.response.ReadBookResponse;
-import project.domain.model.book.usecase.CreateBookUseCase;
-import project.domain.model.book.usecase.DeleteBookUseCase;
-import project.domain.model.book.usecase.ReadBookUseCase;
-import project.domain.model.book.usecase.UpdateBookUseCase;
+import project.domain.book.dto.request.UpdateBookRequest;
+import project.domain.book.dto.response.ReadBookResponse;
+import project.domain.book.usecase.CreateBookUseCase;
+import project.domain.book.usecase.DeleteBookUseCase;
+import project.domain.book.usecase.ReadBookUseCase;
+import project.domain.book.usecase.UpdateBookUseCase;
 
 @RestController
 @RequestMapping("/bookstore")

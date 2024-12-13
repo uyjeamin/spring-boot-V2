@@ -1,4 +1,4 @@
-package project.domain.model.book.spi;
+package project.domain.book.spi;
 
 public interface BookPort extends CommandBookPort, QueryBookPort {
 }

@@ -3,7 +3,7 @@ package project.domain.book.persistence.mapper;
 
 import org.springframework.stereotype.Component;
 import project.domain.book.persistence.entity.BookEntity;
-import project.domain.model.book.Book;
+import project.domain.book.model.Book;
 
 @Component
 public class BookMapper {
