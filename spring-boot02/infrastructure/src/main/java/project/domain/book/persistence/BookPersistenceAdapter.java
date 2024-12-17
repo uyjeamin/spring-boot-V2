@@ -93,6 +93,6 @@ public class BookPersistenceAdapter implements BookPort {
                         .toList();
                                             //.selectFrom()  해당 엔티티에서 모든 컬럼 조회
 
-      //  return null;
+
     }
 }
