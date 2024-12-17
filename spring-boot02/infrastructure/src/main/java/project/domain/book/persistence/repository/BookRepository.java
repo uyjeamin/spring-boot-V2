@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import project.domain.book.persistence.entity.BookEntity;
 
 @Repository
-public interface BookRepository extends JpaRepository<BookEntity,Long> {
+public interface BookRepository extends JpaRepository<BookEntity,Long>{
 
 
 }
