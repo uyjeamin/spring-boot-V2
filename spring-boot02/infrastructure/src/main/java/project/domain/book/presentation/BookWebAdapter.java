@@ -3,13 +3,11 @@ package project.domain.book.presentation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import project.domain.book.dto.response.QueryBookResponse;
 import project.domain.book.presentation.dto.CreateBookWebRequest;
 import project.domain.book.dto.request.UpdateBookRequest;
 import project.domain.book.dto.response.ReadBookResponse;
-import project.domain.book.usecase.CreateBookUseCase;
-import project.domain.book.usecase.DeleteBookUseCase;
-import project.domain.book.usecase.ReadBookUseCase;
-import project.domain.book.usecase.UpdateBookUseCase;
+import project.domain.book.usecase.*;
 
 @RestController
 @RequestMapping("/book")
@@ -19,6 +17,7 @@ public class BookWebAdapter {
     private final ReadBookUseCase readBookUseCase;
     private final UpdateBookUseCase updateBookUseCase;
     private final DeleteBookUseCase deleteBookUseCase;
+    private final GetAllBookUseCase getAllBookUseCase;
 
     @PostMapping("")
     public void createBook(@RequestBody CreateBookWebRequest request) {
@@ -38,5 +37,10 @@ public class BookWebAdapter {
     @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable Long id) {
         deleteBookUseCase.deleteBook(id);
+    }
+
+    @GetMapping()
+    public QueryBookResponse getAllBook() {
+        return getAllBookUseCase.execute();
     }
 }

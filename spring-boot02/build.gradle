@@ -41,54 +41,52 @@ subprojects {
 	}
 
 	dependencies {
-		//lombok
+		// Lombok
 		compileOnly 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
 
+		// Spring Boot 기본 설정
 		implementation 'org.springframework.boot:spring-boot-starter'
 
-		//test
-		testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-		// 기본 AssertJ
-		testImplementation 'org.assertj:assertj-core:3.24.2'
-/*
-		 추가적인 기능이 필요하다면 선택적으로 추가
-		 Swing 컴포넌트 테스트
-		testImplementation 'org.assertj:assertj-swing:3.17.2'
-
-		 데이터베이스 테스트
-		testImplementation 'org.assertj:assertj-db:2.0.0'
-
-		 Neo4j 테스트
-		testImplementation 'org.assertj:assertj-neo4j:1.0.0'
-*/
-		//QueryDsl
+		// QueryDSL 설정
 		implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
 		annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
 		annotationProcessor "jakarta.annotation:jakarta.annotation-api"
 		annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+		// Test
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testImplementation 'org.assertj:assertj-core:3.24.2'
+	}
+
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+
+	// QueryDSL Q클래스 생성 경로 설정
+	def generatedDir = layout.buildDirectory.dir("generated/sources/annotationProcessor/java/main")
+
+	sourceSets {
+		main {
+			java {
+				srcDirs += generatedDir
+			}
+		}
+	}
+
+	tasks.withType(JavaCompile).configureEach {
+		options.annotationProcessorGeneratedSourcesDirectory = generatedDir.get().asFile
+	}
+
+	clean {
+		delete generatedDir
 	}
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
-bootJar {
+tasks.named('bootJar') {
 	enabled = true
 	destinationDirectory = file("$buildDir/libs")
 	mainClass = 'project.SpringBoot02Application'
 }
 
-sourceSets {
-	main {
-		java {
-			srcDirs = ['src/main/java']
-		}
-	}
-}
-
 jar.enabled = false
-
-
